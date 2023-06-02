@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FindAndReplace.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ergrigor <ergrigor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/25 12:05:04 by kali              #+#    #+#             */
-/*   Updated: 2023/06/02 18:30:27 by ergrigor         ###   ########.fr       */
+/*   Created: 2023/06/02 13:35:13 by ergrigor          #+#    #+#             */
+/*   Updated: 2023/06/02 14:37:55 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef FINDANDREPLACE_HPP
+# define  FINDANDREPLACE_HPP
 
-int main()
-{
-    std::string string =  "HI THIS IS BRAIN";
-    std::string* stringPTR = &string;
-    std::string&    stringREF = string;
+# include <iostream>
+# include <string>
+# include <fstream>
 
-    std::cout << "string = " << string << std::endl;
-    std::cout << "stringPTR = " << *stringPTR << std::endl;
-    std::cout << "stringREF = " << stringREF << std::endl;
-    
-    return 0;
-}
+int	FindAndReplace(std::ifstream &inFile, char *file, char *s1, char *s2);
+
+#endif

@@ -5,22 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ergrigor <ergrigor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/25 12:05:04 by kali              #+#    #+#             */
-/*   Updated: 2023/06/02 18:30:27 by ergrigor         ###   ########.fr       */
+/*   Created: 2023/06/02 19:17:21 by ergrigor          #+#    #+#             */
+/*   Updated: 2023/06/02 19:18:17 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "Harl.hpp"
 
 int main()
 {
-    std::string string =  "HI THIS IS BRAIN";
-    std::string* stringPTR = &string;
-    std::string&    stringREF = string;
+	Harl		harl;
+	std::string	param;
 
-    std::cout << "string = " << string << std::endl;
-    std::cout << "stringPTR = " << *stringPTR << std::endl;
-    std::cout << "stringREF = " << stringREF << std::endl;
-    
-    return 0;
+	while (true)
+	{
+		std::cout << "Please insert \"DEBUG\", \"INFO\", \"WARNING\", \"ERROR\" or \"EXIT\"(for exit program) -> ";
+		getline(std::cin, param);
+		if (param.compare("EXIT") == 0 || std::cin.eof())
+			return 0;
+		harl.complain(param);
+	}
+	
+	return 0;
 }

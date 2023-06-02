@@ -1,11 +1,10 @@
-NAME = Zombie
+NAME = FandR
 
 CC = c++
 OBJS_DIR = obj
 SRCS_DIR = src
 INC_DIR = Includes
 FLAGS = -I $(INC_DIR) -Wall -Wextra -Werror -std=c++98
-
 SRCS = $(wildcard $(SRCS_DIR)/*.cpp)
 OBJS = $(patsubst $(SRCS_DIR)/%.cpp, $(OBJS_DIR)/%.o, $(SRCS))
 
@@ -27,7 +26,7 @@ TRASH = 🗑️
 RECYCLE = ♻️
 
 $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.cpp | $(OBJS_DIR)
-	$(CC) $(FLAGS) -c $< -o $@
+	@$(CC) $(FLAGS) -c $< -o $@
 	@printf "\r${YELLOW}Compiling... ${GREEN}[====]${CHECKMARK}${NC}"
 
 $(OBJS_DIR):
@@ -36,7 +35,7 @@ $(OBJS_DIR):
 all: $(NAME)
 
 $(NAME): $(OBJS) | $(OBJS_DIR)
-	$(CC) $(FLAGS) -o $(NAME) $(OBJS)
+	@$(CC) $(FLAGS) -o $(NAME) $(OBJS)
 	@printf "\n${YELLOW}Executable file created...${NC}\n"
 
 clean:
